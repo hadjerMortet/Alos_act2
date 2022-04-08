@@ -60,9 +60,36 @@ describe('GET /Restaurant', () {
 	it('respond with json Restaurant not found', (done) {
 		request(app)
 		    .get('/Restaurant')
-			.set('Accept', 'application/json')
-			.expect('Content-Type', /json/)
-			.expect(200, done);
+		    .set('Accept', 'application/json')
+		    .expect('Content-Type', /json/)
+		    .expect(200, done);
+	});
+});
+////ID NO EXISTING
+describe('GET /Restaurant', () {
+	it('respond with json Restaurant not found', (done) {
+	        const id = 2;
+		request(app)
+		    .get('/Restaurant' + id)
+		    .set('Accept', 'application/json')
+	            .expect('Content-Type', /json/)
+		    .expect(200, done);
+	});
+});
+
+describe('DELETE /Restaurant/:id', () {
+	it('respond with json Restaurant not found', (done) {
+		const id = 265
+		request(app)
+		    .get('/Restaurant' + id)
+		    .set('Accept', 'application/json')
+		    .expect('Content-Type', /json/)
+		    .expect(404)
+		    .expect('"Restaurant not found"')
+		    .end((err) => {
+			if (err) return done(err);
+			done();
+			});
 	});
 });
 
@@ -82,7 +109,7 @@ describe('DELETE /Restaurant/:id', () {
 	it('respond with json Restaurant not found', (done) {
 		const id = 265
 		request(app)
-		    .get('/Restaurant' +id)
+		    .get('/Restaurant' + id)
 			.set('Accept', 'application/json')
 			.expect('Content-Type', /json/)
 			.expect(404)
