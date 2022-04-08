@@ -16,7 +16,7 @@ app.use(bodyParser.json());
 app.get('/Restaurant',(req,res) => {
 	res.status(200).json(Restaurant)
 })
-app.get('/Restaurant/:id', (req,res) => {
+app.get( (req,res) => {
 	const id = parseInt(req.params.id)
 	const Rest = Restaurant.find(Rest => Rest.id === id)
 	if(!Rest) return response.status(404).send("The Restaurant with the provided id does not exist.");
@@ -58,7 +58,7 @@ body('type de restaurant').not().isEmpty().trim().escape(),
 	
 });
 ///PUT ROUTE 
-app.put('/Restaurant/:id',
+app.put(
         body('name').not().isEmpty().trim().escape(),
 		body('address').not().isEmpty().trim().escape(),
 		body('about').not().isEmpty().trim().escape(),
@@ -80,7 +80,7 @@ app.put('/Restaurant/:id',
 		})
 		
 ///DELETE ROUTE 
-app.delete('/Restaurant/:id', (req,res) => {
+app.delete( (req,res) => {
 	const id = parseInt(req.params.id)
 	let Rest = Restaurant.find(Rest => Rest.id === id)
 	if(!Rest) return response.status(404).send("Restaurant not found");
