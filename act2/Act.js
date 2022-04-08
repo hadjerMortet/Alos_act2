@@ -80,7 +80,7 @@ app.put('/Restaurant/:id',
 		})
 		
 ///DELETE ROUTE 
-app.delete( '/Restaurant/:id, (req,res) => {
+app.delete( '/Restaurant/:id', (req,res) => {
 	const id = req.params.id
 	let Rest = Restaurant.find(Rest => Rest.id === id)
 	if(!Rest) return response.status(404).send("Restaurant not found");
