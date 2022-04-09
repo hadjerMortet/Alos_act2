@@ -56,7 +56,7 @@ describe('POST /Restaurant', ()=>  {
 })
 
 //GET ROUTE 
-describe('GET /Restaurant', () {
+describe('GET /Restaurant', () => {
 	it('respond with json Restaurant not found', (done) {
 		request(app)
 		    .get('/Restaurant')
@@ -66,7 +66,7 @@ describe('GET /Restaurant', () {
 	});
 });
 // EXISTING ID
-describe('GET /Restaurant', () {
+describe('GET /Restaurant', () => {
 	it('respond with json Restaurant not found', (done) {
 	        const id = "2";
 		request(app)
@@ -77,7 +77,7 @@ describe('GET /Restaurant', () {
 	});
 });
 //ID NO EXISTING
-describe('GET /Restaurant/:id', () {
+describe('GET /Restaurant/:id', () => {
 	it('respond with json Restaurant not found', (done) {
 		const id = "265"
 		request(app)
@@ -105,7 +105,7 @@ describe('DELETE  /Restaurant/:id', () => {
 	});
 });
 //ID NO EXISTING
-describe('DELETE /Restaurant/:id', () {
+describe('DELETE /Restaurant/:id', () =>{
 	it('respond with json Restaurant not found', (done) {
 		const id = "265"
 		request(app)
